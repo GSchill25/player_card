@@ -1,0 +1,88 @@
+  <div class="container">
+    <div class="page-header">
+      <h3>
+        {{person.first_name}} {{person.last_name}}
+      </h3>
+    </div>
+    
+    
+      <div class="row">
+        <div class="col-sm-1 col-xs-4">
+          <!-- person.picture -->
+          <img src="/assets/default.png" height="150" width="125" class="img-rounded"/>
+        </div>
+
+        <div class="col-sm-3 col-sm-offset-1 col-xs-8">
+          <div class="well well-lg">
+            <dl>
+              <dd><b>Name: </b> {{person.first_name}} {{person.last_name}}</dd><br>
+             <dd><b>Height: </b>{{person.height}}</dd><br>
+             <dd><b>Weight: </b>{{person.weight}}</dd><br>
+             <dd><b>Nicknames: </b>{{person.nicknames}}</dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <div class="container">
+    <div class="row">
+      <div class= "col-lg-5  col-sm-12 col-xs-12">
+        <div class="panel panel-success">
+          <div class="panel-heading">Top Strengths</div>
+          <div class="panel-body">
+            <div ng-repeat="comment in person.comments | orderBy:'-upvotes'">
+              <p ng-show="comment.strength"><span class="glyphicon glyphicon-thumbs-up"
+                ng-click="incrementUpvotes(comment)"></span>
+              {{comment.upvotes}} -
+              <span style="font-size:12px; margin-left:5px;">
+                {{comment.body}}
+              </span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class= "col-lg-5 col-lg-offset-1 col-sm-12 col-xs-12">
+        <div class= "panel panel-danger">
+          <div class="panel-heading">Top Weaknesses</div>
+          <div class="panel-body">
+          <div ng-repeat="comment in person.comments | orderBy:'-upvotes' | limitTo: 5">
+              <p ng-hide="comment.strength"><span class="glyphicon glyphicon-thumbs-up"
+                ng-click="incrementUpvotes(comment)"></span>
+              {{comment.upvotes}} - 
+              <span style="font-size:12px; margin-left:5px;">
+                {{comment.body}}
+              </span></p>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div class ="container">
+      <div class="well well-sm">
+        <form ng-submit="addComment()"
+          style="margin-top:30px;">
+          <h4>Add a new comment</h4>
+
+          <div class="form-group">
+            <input type="text"
+            class="form-control"
+            placeholder="Comment"
+            ng-model="body"></input>
+          </div>
+          <div class="col-xs-6 form-group">
+            <label> Strength </label>&nbsp;
+            <input type="checkbox"
+            ng-model="strength"></input>
+          </div>
+          <div class="col-xs-6">
+            <label> Weakness </label>&nbsp;
+            <input type="checkbox"></input>
+          </div></br>
+          <button type="submit" class="btn btn-primary">Comment</button>
+        </form>
+      </div>
+    </div>
