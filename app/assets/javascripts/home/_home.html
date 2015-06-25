@@ -9,7 +9,7 @@
         <tbody>
         <tr ng-repeat="person in people | orderBy:'-upvotes'">
           <td>
-            <img src="/assets/default.png" height="50" width="50" class="img-circle"/>
+            <img src="/default.png" height="50" width="50" class="img-circle"/>
             <!-- {{person.picture}} -->
             <span style="font-size:12px; margin-left:10px;">
                 <a href="#/people/{{person.id}}">{{person.first_name}} {{person.last_name}}</a>
