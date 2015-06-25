@@ -25,13 +25,7 @@ module PlayerNews
     #config.assets.precompile.shift
 
     # Explicitly register the extensions we are interested in compiling
-    config.assets.precompile.push(Proc.new do |path|
-        File.extname(path).in? [
-        '.html',                 # Templates
-        '.png',  '.gif', '.jpg', '.jpeg', '.svg', # Images
-        '.eot',  '.otf', '.svc', '.woff', '.ttf', # Fonts
-        ]
-    end)
+    config.assets.precompile += %w( .svg .eot .woff .ttf .png .jpg .gif)
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
