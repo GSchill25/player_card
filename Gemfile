@@ -25,6 +25,7 @@ gem 'devise', '~> 3.4.0'
 
 gem 'carrierwave'
 
+gem 'rails_12factor', group: :production
 
 
 # Use ActiveModel has_secure_password
