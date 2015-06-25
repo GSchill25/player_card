@@ -9,6 +9,7 @@
       <div class="row">
         <div class="col-sm-1 col-xs-4">
           <!-- person.picture -->
+          <%= asset_path('default.png') %>
           <img src="/assets/default.png" height="150" width="125" class="img-rounded"/>
         </div>
 
@@ -32,7 +33,7 @@
           <div class="panel-heading">Top Strengths</div>
           <div class="panel-body">
             <div ng-repeat="comment in person.comments | orderBy:'-upvotes'">
-              <p ng-show="comment.strength"><span class="glyphicon glyphicon-thumbs-up"
+              <p ng-show="comment.strength"><span class="glyphicons glyphicon-thumbs-up"
                 ng-click="incrementUpvotes(comment)"></span>
               {{comment.upvotes}} - 
               <span style="font-size:12px; margin-left:5px;">
@@ -48,7 +49,7 @@
           <div class="panel-heading">Top Weaknesses</div>
           <div class="panel-body">
           <div ng-repeat="comment in person.comments | orderBy:'-upvotes' | limitTo: 5">
-              <p ng-hide="comment.strength"><span class="glyphicon glyphicon-thumbs-up"
+              <p ng-hide="comment.strength"><span class="glyphicons glyphicon-thumbs-up"
                 ng-click="incrementUpvotes(comment)"></span>
               {{comment.upvotes}} - 
               <span style="font-size:12px; margin-left:5px;">
