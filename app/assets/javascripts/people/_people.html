@@ -34,7 +34,7 @@
             <div ng-repeat="comment in person.comments | orderBy:'-upvotes'">
               <p ng-show="comment.strength"><span class="glyphicon glyphicon-thumbs-up"
                 ng-click="incrementUpvotes(comment)"></span>
-              {{comment.upvotes}} - {{current_user.username}}
+              {{comment.upvotes}} - 
               <span style="font-size:12px; margin-left:5px;">
                 {{comment.body}}
               </span></p>
